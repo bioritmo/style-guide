@@ -1,27 +1,37 @@
 Ruby Styleguide
+===============
 If you're visiting from the internet, feel free to learn from our style. This is a guide we use for our own ruby apps internally at GitHub. We encourage you to set up one that works for your own team.
 
 Much of this was taken from https://github.com/bbatsov/ruby-style-guide. Please add to this guide if you find any particular patterns or styles that we've adopted internally. Submit a pull request to ask for feedback (if you're an employee).
 
 Coding Style
-Use soft-tabs with a two space indent.
+============
 
-Keep lines fewer than 80 characters.
+* Use soft-tabs with a two space indent.
 
-Never leave trailing whitespace.
+* Keep lines fewer than 80 characters.
 
-Use spaces around operators, after commas, colons and semicolons, around { and before }.
+* Never leave trailing whitespace.
 
+* Use spaces around operators, after commas, colons and semicolons, around { and before }.
+
+```ruby
 sum = 1 + 2
 a, b = 1, 2
 1 > 2 ? true : false; puts 'Hi'
 [1, 2, 3].each { |e| puts e }
-No spaces after (, [ or before ], ).
+```
 
+* No spaces after ```(```, ```[``` or before ```]```, ```)```.
+
+```ruby
 some(arg).other
 [1, 2, 3].length
-Indent when as deep as case.
+```
 
+* Indent ```when``` as deep as ```case```.
+
+```ruby
 case
 when song.name == 'Misty'
   puts 'Not again!'
@@ -41,8 +51,11 @@ kind = case year
        when 1940..1950 then 'Bebop'
        else 'Jazz'
        end
-Use empty lines between defs and to break up a method into logical paragraphs.
+```
 
+* Use empty lines between ```def``` s and to break up a method into logical paragraphs.
+
+```ruby
 def some_method
   data = initialize(options)
 
@@ -54,9 +67,14 @@ end
 def some_method
   result
 end
+```
+
 Documentation
+=============
+
 Use TomDoc to the best of your ability. It's pretty sweet:
 
+```ruby
 # Public: Duplicate some text an arbitrary number of times.
 #
 # text  - The String to be duplicated.
@@ -71,18 +89,26 @@ Use TomDoc to the best of your ability. It's pretty sweet:
 def multiplex(text, count)
   text * count
 end
+```
+
 Syntax
-Use def with parentheses when there are arguments. Omit the parentheses when the method doesn't accept any arguments.
+======
 
- def some_method
-   # body omitted
- end
+* Use ```def``` with parentheses when there are arguments. Omit the parentheses when the method doesn't accept any arguments.
 
- def some_method_with_arguments(arg1, arg2)
-   # body omitted
- end
-Never use for, unless you know exactly why. Most of the time iterators should be used instead. for is implemented in terms of each (so you're adding a level of indirection), but with a twist - for doesn't introduce a new scope (unlike each) and variables defined in its block will be visible outside it.
+```ruby
+def some_method
+  # body omitted
+end
 
+def some_method_with_arguments(arg1, arg2)
+  # body omitted
+end
+```
+
+* Never use ```for```, unless you know exactly why. Most of the time iterators should be used instead. ```for``` is implemented in terms of ```each``` (so you're adding a level of indirection), but with a twist - ```for``` doesn't introduce a new scope (unlike ```each```) and variables defined in its block will be visible outside it.
+
+```ruby
 arr = [1, 2, 3]
 
 # bad
@@ -92,8 +118,11 @@ end
 
 # good
 arr.each { |elem| puts elem }
-Never use then for multi-line if/unless.
+```
 
+* Never use ```then``` for multi-line ```if```/```unless```.
+
+```ruby
 # bad
 if some_condition then
   # body omitted
@@ -103,15 +132,21 @@ end
 if some_condition
   # body omitted
 end
-Avoid the ternary operator (?:) except in cases where all expressions are extremely trivial. However, do use the ternary operator(?:) over if/then/else/end constructs for single line conditionals.
+```
 
+* Avoid the ternary operator (```?``` ```:```) except in cases where all expressions are extremely trivial. However, do use the ternary operator(```?``` ```:```) over ```if```/```then```/```else```/```end``` constructs for single line conditionals.
+
+```ruby
 # bad
 result = if some_condition then something else something_else end
 
 # good
 result = some_condition ? something : something_else
-Use one expression per branch in a ternary operator. This also means that ternary operators must not be nested. Prefer if/else constructs in these cases.
+```
 
+* Use one expression per branch in a ternary operator. This also means that ternary operators must not be nested. Prefer ```if```/```else``` constructs in these cases.
+
+```ruby
 # bad
 some_condition ? (nested_condition ? nested_something : nested_something_else) : something_else
 
@@ -121,12 +156,15 @@ if some_condition
 else
   something_else
 end
-The and and or keywords are banned. It's just not worth it. Always use && and || instead.
+```
 
-Avoid multi-line ?: (the ternary operator), use if/unless instead.
+* The ```and``` and ```or``` keywords are banned. It's just not worth it. Always use ```&&``` and ```||``` instead.
 
-Favor modifier if/unless usage when you have a single-line body.
+* Avoid multi-line ```?``` ```:``` (the ternary operator), use ```if```/```unless``` instead.
 
+* Favor modifier ```if```/```unless``` usage when you have a single-line body.
+
+```ruby
 # bad
 if some_condition
   do_something
@@ -134,8 +172,11 @@ end
 
 # good
 do_something if some_condition
-Never use unless with else. Rewrite these with the positive case first.
+```
 
+* Never use ```unless``` with ```else```. Rewrite these with the positive case first.
+
+```ruby
 # bad
 unless success?
   puts 'failure'
@@ -149,8 +190,11 @@ if success?
 else
   puts 'failure'
 end
-Don't use parentheses around the condition of an if/unless/while, unless the condition contains an assignment (see "Using the return value of =" below).
+```
 
+* Don't use parentheses around the condition of an ```if```/```unless```/```while```, unless the condition contains an assignment (see "Using the return value of ```=```" below).
+
+```ruby
 # bad
 if (x > 10)
   # body omitted
@@ -165,8 +209,11 @@ end
 if (x = self.next_value)
   # body omitted
 end
-Prefer {...} over do...end for single-line blocks. Avoid using {...} for multi-line blocks (multiline chaining is always ugly). Always use do...end for "control flow" and "method definitions" (e.g. in Rakefiles and certain DSLs). Avoid do...end when chaining.
+```
 
+* Prefer ```{```...```}``` over ```do```...```end``` for single-line blocks. Avoid using ```{```...```}``` for multi-line blocks (multiline chaining is always ugly). Always use ```do```...```end``` for "control flow" and "method definitions" (e.g. in Rakefiles and certain DSLs). Avoid ```do```...```end``` when chaining.
+
+```ruby
 names = ["Bozhidar", "Steve", "Sarah"]
 
 # good
@@ -184,10 +231,13 @@ names.select { |name| name.start_with?("S") }.map { |name| name.upcase }
 names.select do |name|
   name.start_with?("S")
 end.map { |name| name.upcase }
-Some will argue that multiline chaining would look OK with the use of {...}, but they should ask themselves - it this code really readable and can't the blocks contents be extracted into nifty methods.
+```
 
-Avoid return where not required.
+* Some will argue that multiline chaining would look OK with the use of ```{```...```}```, but they should ask themselves - it this code really readable and can't the blocks contents be extracted into nifty methods.
 
+* Avoid ```return``` where not required.
+
+```ruby
 # bad
 def some_method(some_arr)
   return some_arr.size
@@ -197,8 +247,11 @@ end
 def some_method(some_arr)
   some_arr.size
 end
-Use spaces around the = operator when assigning default values to method parameters:
+```
 
+* Use spaces around the ```=``` operator when assigning default values to method parameters:
+
+```ruby
 # bad
 def some_method(arg1=:default, arg2=nil, arg3=[])
   # do something...
@@ -208,10 +261,13 @@ end
 def some_method(arg1 = :default, arg2 = nil, arg3 = [])
   # do something...
 end
+```
+
 While several Ruby books suggest the first style, the second is much more prominent in practice (and arguably a bit more readable).
 
-Using the return value of = (an assignment) is ok, but surround the assignment with parenthesis.
+* Using the return value of ```=``` (an assignment) is ok, but surround the assignment with parenthesis.
 
+```ruby
 # good - shows intented use of assignment
 if (v = array.grep(/foo/)) ...
 
@@ -220,49 +276,68 @@ if v = array.grep(/foo/) ...
 
 # also good - shows intended use of assignment and has correct precedence.
 if (v = self.next_value) == "hello" ...
-Use ||= freely to initialize variables.
+```
 
+* Use ```||=``` freely to initialize variables.
+
+```ruby
 # set name to Bozhidar, only if it's nil or false
 name ||= 'Bozhidar'
-Don't use ||= to initialize boolean variables. (Consider what would happen if the current value happened to be false.)
+```
 
+* Don't use ```||=``` to initialize boolean variables. (Consider what would happen if the current value happened to be ```false```.)
+
+```ruby
 # bad - would set enabled to true even if it was false
 enabled ||= true
 
 # good
 enabled = true if enabled.nil?
-Avoid using Perl-style special variables (like $0-9, $, etc. ). They are quite cryptic and their use in anything but one-liner scripts is discouraged. Prefer long form versions such as $PROGRAM_NAME.
+```
 
-Never put a space between a method name and the opening parenthesis.
+* Avoid using Perl-style special variables (like ```$0-9```, ```$```, etc. ). They are quite cryptic and their use in anything but one-liner scripts is discouraged. Prefer long form versions such as ```$PROGRAM_NAME```.
 
+* Never put a space between a method name and the opening parenthesis.
+
+```ruby
 # bad
 f (3 + 2) + 1
 
 # good
 f(3 + 2) + 1
-If the first argument to a method begins with an open parenthesis, always use parentheses in the method invocation. For example, write f((3 + 2) + 1).
+```
 
-Use _ for unused block parameters.
+* If the first argument to a method begins with an open parenthesis, always use parentheses in the method invocation. For example, write ```f((3 + 2) + 1)```.
 
+* Use ```_``` for unused block parameters.
+
+```ruby
 # bad
 result = hash.map { |k, v| v + 1 }
 
 # good
 result = hash.map { |_, v| v + 1 }
+```
+
 Naming
-Use snake_case for methods and variables.
+======
 
-Use CamelCase for classes and modules. (Keep acronyms like HTTP, RFC, XML uppercase.)
+* Use ```snake_case``` for methods and variables.
 
-Use SCREAMING_SNAKE_CASE for other constants.
+* Use ```CamelCase``` for classes and modules. (Keep acronyms like HTTP, RFC, XML uppercase.)
 
-The names of predicate methods (methods that return a boolean value) should end in a question mark. (i.e. Array#empty?).
+* Use ```SCREAMING_SNAKE_CASE``` for other constants.
 
-The names of potentially "dangerous" methods (i.e. methods that modify self or the arguments, exit!, etc.) should end with an exclamation mark. Bang methods should only exist if a non-bang method exists. (More on this).
+* The names of predicate methods (methods that return a boolean value) should end in a question mark. (i.e. ```Array#empty?```).
+
+* The names of potentially "dangerous" methods (i.e. methods that modify ```self``` or the arguments, ```exit!```, etc.) should end with an exclamation mark. Bang methods should only exist if a non-bang method exists. (More on this).
 
 Classes
-Avoid the usage of class (@@) variables due to their "nasty" behavior in inheritance.
+=======
 
+Avoid the usage of class (```@@```) variables due to their "nasty" behavior in inheritance.
+
+```
 class Parent
   @@class_var = 'parent'
 
@@ -276,10 +351,13 @@ class Child < Parent
 end
 
 Parent.print_class_var # => will print "child"
+```
+
 As you can see all the classes in a class hierarchy actually share one class variable. Class instance variables should usually be preferred over class variables.
 
-Use def self.method to define singleton methods. This makes the methods more resistant to refactoring changes.
+* Use ```def self.method``` to define singleton methods. This makes the methods more resistant to refactoring changes.
 
+```ruby
 class TestClass
   # bad
   def TestClass.some_method
@@ -290,8 +368,11 @@ class TestClass
   def self.some_other_method
     # body omitted
   end
-Avoid class << self except when necessary, e.g. single accessors and aliased attributes.
+```
+  
+* Avoid ```class << self``` except when necessary, e.g. single accessors and aliased attributes.
 
+```ruby
 class TestClass
   # bad
   class << self
@@ -318,8 +399,11 @@ class TestClass
     # body omitted
   end
 end
-Indent the public, protected, and private methods as much the method definitions they apply to. Leave one blank line above them.
+```
 
+* Indent the ```public```, ```protected```, and ```private``` methods as much the method definitions they apply to. Leave one blank line above them.
+
+```ruby
 class SomeClass
   def public_method
     # ...
@@ -330,9 +414,14 @@ class SomeClass
     # ...
   end
 end
-Exceptions
-Don't use exceptions for flow of control.
+```
 
+Exceptions
+==========
+
+* Don't use exceptions for flow of control.
+
+```ruby
 # bad
 begin
   n / d
@@ -346,8 +435,11 @@ if d.zero?
 else
   n / d
 end
-Avoid rescuing the Exception class.
+```
 
+* Avoid rescuing the ```Exception``` class.
+
+```ruby
 # bad
 begin
   # an exception occurs here
@@ -361,40 +453,59 @@ begin
 rescue Exception
   # exception handling
 end
-Collections
-Prefer %w to the literal array syntax when you need an array of strings.
+```
 
+Collections
+===========
+
+Prefer ```%w``` to the literal array syntax when you need an array of strings.
+
+```ruby
 # bad
 STATES = ['draft', 'open', 'closed']
 
 # good
 STATES = %w(draft open closed)
-Use Set instead of Array when dealing with unique elements. Set implements a collection of unordered values with no duplicates. This is a hybrid of Array's intuitive inter-operation facilities and Hash's fast lookup.
+```
 
-Use symbols instead of strings as hash keys.
+* Use ```Set``` instead of Array when dealing with unique elements. ```Set``` implements a collection of unordered values with no duplicates. This is a hybrid of ```Array```'s intuitive inter-operation facilities and ```Hash```'s fast lookup.
 
+* Use symbols instead of strings as hash keys.
+
+```ruby
 # bad
 hash = { 'one' => 1, 'two' => 2, 'three' => 3 }
 
 # good
 hash = { one: 1, two: 2, three: 3 }
-Strings
-Prefer string interpolation instead of string concatenation:
+```
 
+Strings
+=======
+
+* Prefer string interpolation instead of string concatenation:
+
+```ruby
 # bad
 email_with_name = user.name + ' <' + user.email + '>'
 
 # good
 email_with_name = "#{user.name} <#{user.email}>"
-Prefer double-quoted strings. Interpolation and escaped characters will always work without a delimiter change, and ' is a lot more common than " in string literals.
+```
 
+* Prefer double-quoted strings. Interpolation and escaped characters will always work without a delimiter change, and ```'``` is a lot more common than ```"``` in string literals.
+
+```ruby
 # bad
 name = 'Bozhidar'
 
 # good
 name = "Bozhidar"
-Avoid using String#+ when you need to construct large data chunks. Instead, use String#<<. Concatenation mutates the string instance in-place and is always faster than String#+, which creates a bunch of new string objects.
+```
 
+* Avoid using ```String#+``` when you need to construct large data chunks. Instead, use ```String#<<```. Concatenation mutates the string instance in-place and is always faster than ```String#+```, which creates a bunch of new string objects.
+
+```ruby
 # good and also fast
 html = ''
 html << '<h1>Page title</h1>'
@@ -402,9 +513,14 @@ html << '<h1>Page title</h1>'
 paragraphs.each do |paragraph|
   html << "<p>#{paragraph}</p>"
 end
-Regular Expressions
-Avoid using $1-9 as it can be hard to track what they contain. Named groups can be used instead.
+```
 
+Regular Expressions
+===================
+
+* Avoid using $1-9 as it can be hard to track what they contain. Named groups can be used instead.
+
+```ruby
 # bad
 /(regexp)/ =~ string
 ...
@@ -414,13 +530,19 @@ process $1
 /(?<meaningful_var>regexp)/ =~ string
 ...
 process meaningful_var
-Be careful with ^ and $ as they match start/end of line, not string endings. If you want to match the whole string use: \A and \Z.
+```
 
+* Be careful with ```^``` and ```$``` as they match start/end of line, not string endings. If you want to match the whole string use: ```\A``` and ```\Z```.
+
+```ruby
 string = "some injection\nusername"
 string[/^username$/]   # matches
 string[/\Ausername\Z/] # don't match
-Use x modifier for complex regexps. This makes them more readable and you can add some useful comments. Just be careful as spaces are ignored.
+```
 
+* Use ```x``` modifier for complex regexps. This makes them more readable and you can add some useful comments. Just be careful as spaces are ignored.
+
+```ruby
 regexp = %r{
   start         # some text
   \s            # white space char
@@ -428,12 +550,20 @@ regexp = %r{
   (?:alt1|alt2) # some alternation
   end
 }x
+```
+
 Percent Literals
-Use %w freely.
+================
 
+* Use ```%w``` freely.
+
+```ruby
 STATES = %w(draft open closed)
-Use %() for single-line strings which require both interpolation and embedded double-quotes. For multi-line strings, prefer heredocs.
+```
 
+* Use ```%()``` for single-line strings which require both interpolation and embedded double-quotes. For multi-line strings, prefer heredocs.
+
+```ruby
 # bad (no interpolation needed)
 %(<div class="text">Some text</div>)
 # should be '<div class="text">Some text</div>'
@@ -448,8 +578,11 @@ Use %() for single-line strings which require both interpolation and embedded do
 
 # good (requires interpolation, has quotes, single line)
 %(<tr><td class="name">#{name}</td>)
-Use %r only for regular expressions matching more than one '/' character.
+```
 
+* Use ```%r``` only for regular expressions matching more than one '/' character.
+
+```ruby
 # bad
 %r(\s+)
 
@@ -459,5 +592,10 @@ Use %r only for regular expressions matching more than one '/' character.
 
 # good
 %r(^/blog/2011/(.*)$)
+```
+
 Above all else
-Follow your
+
+Follow your :heart: and share.
+
+Pull Request All Yout Feelings.
