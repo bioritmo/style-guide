@@ -1,4 +1,6 @@
-style_guide
-===========
+This is the Bio Style
+=====================
 
-Our StyleGuide
+Our own style guide and best practices.
+
+Inspired by Github.
