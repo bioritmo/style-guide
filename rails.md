@@ -32,5 +32,40 @@ group :development do
   gem 'binding_of_caller'
   gem 'foreman'               # Load many services at once (web, worker, smtp)
   gem 'mailcatcher'           # Emulates SMTP and provides visualization of emails
-  gem 'rails_best_practices' 
+  gem 'rails_best_practices'
 end
+```
+
+Models
+======
+
+Querying
+--------
+
+Hash params is preferred as argument in ```where``` clause.
+
+All queries must live inside their own model. Never use ```where``` from outside of the model.
+* When you have to call queries out of the model it must be done through ```scope```.
+```ruby
+    class VipsController < ActiveController
+      def vip
+        # Never
+        # @vip_plans = Plan.where(:kind => "vip")
+
+        # Always
+        @vip_plans = Plan.vip
+      end
+    end
+```
+* When you have to call conditions from another model it must be done through ```merge```.
+```ruby
+    class Purchase < ActiveRecord::Base
+      belongs_to :plan
+
+      # Never
+      # scope :vip, includes(:plan).where('plans.kind = ?', "vip")
+
+      # Always
+      scope :vip, includes(:plan).merge(Plan.vip)
+    end
+```
