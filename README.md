@@ -1,11 +1,12 @@
-This is the Bio Style
-=====================
+Bio Ritmo's Style Guide
+=======================
 
 Our own style guide and best practices.
 
 Inspired by Github.
 
-# How to Contribute
+How to Contribute
+-----------------
 
 * Use GitHub Flavored Markdown
 * Use Github Editor (Online) or Mou (Mac OS X) or whatever
