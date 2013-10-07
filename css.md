@@ -49,7 +49,7 @@ Documentation
 
 CSS isn't the most expressive language and requires a lot of knowledge of the existing domain and markup to understand the purpose of specific styles, how they should be used and what we can achieve with it. A good way to communicate these details about your code is to explain them with some bits of documentation.
 
-As we have things like TomDoc to specify how we should document our Ruby code, here is a small specification on how to document stylesheets.
+As we have things like [TomDoc](http://tomdoc.org/) to specify how we should document our Ruby code, here is a small specification on how to document stylesheets.
 
 ```
 /* ==========================================================================
@@ -110,7 +110,7 @@ TODO: Notes on specificity
 
 Vendor prefixes
 ===============
-In case of using vendor prefixed properties and functions be sure to check browser compatibility at Can I use… to be sure of it and which prefixes you will need. Several CSS3 properties don't require vendor prefixes on several browsers, like ```border-radius``` and ```box-shadow```. If you are not that lucky, place the vendor-prefixed properties before it's own unprefixed version.
+In case of using vendor prefixed properties and functions be sure to check browser compatibility at [Can I use…](http://caniuse.com/) to be sure of it and which prefixes you will need. Several CSS3 properties don't require vendor prefixes on several browsers, like ```border-radius``` and ```box-shadow```. If you are not that lucky, place the vendor-prefixed properties before it's own unprefixed version.
 
 ```css
  .button:hover {
@@ -125,7 +125,7 @@ In case of using vendor prefixed properties and functions be sure to check brows
 Preprocessors
 =============
 
-Preprocessors like Sass, LESS or Stylus are useful for handling a large set of stylesheets and we should take note on a few details so we won't do bad use of these tools.
+Preprocessors like [Sass](http://sass-lang.com/), [LESS](http://lesscss.org/) or [Stylus](http://learnboost.github.io/stylus/) are useful for handling a large set of stylesheets and we should take note on a few details so we won't do bad use of these tools.
 
 Whenever using variables, define them with Screaming snake case so it's easier to scan the variable usage through your code. It is easier to spot $FONT_SIZE than $font-size;
 Use a language specific comment delimiter like // instead of the classic /* */ from CSS. They will work nicer with syntax highlighters and will be always ignored when compiling your stylesheets;
@@ -142,7 +142,7 @@ References
 
 Parts of this guideline was based on several resources across the Internet, that might provide extra information on specific topics, different approaches for similar scenarios or unanticipated scenarios on this guideline.
 
-Idiomatic CSS
-GitHub CSS Styleguide
-CSS-Tricks Sass Style Guide
-Mark Otto Code guide
+* [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
+* [GitHub CSS Styleguide](https://github.com/styleguide/css)
+* [CSS-Tricks Sass Style Guide](http://css-tricks.com/sass-style-guide/)
+* [Mark Otto Code guide](https://github.com/mdo/code-guide)
