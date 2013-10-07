@@ -22,7 +22,7 @@ Do your best to organize properties in related groups of functionality (such as 
 + Additional CSS3 properties like ```box-shadow```, ```transform``` and such. Such grouping rules might be enough to most of the daily CSS you should face.
 
 Everything else
-===============
+---------------
 
 In case of complex definitions and long list of properties, consider splitting up groups of related styles into different selectors and applying multiple classes to the same element. (TODO notes on modularity?)
 
