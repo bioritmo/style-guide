@@ -8,7 +8,7 @@
 
 ```
   $ git checkout -b my-feature-branch
-``
+```
 
 * Create branches with your initials as prefix;
 
