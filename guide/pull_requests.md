@@ -92,7 +92,7 @@ When being reviewed, please consider the following bullets:
 
 Once everything is properly reviewed, improvements were made and the code is ready to be shipped, it is time to merge the Pull Request into the main branch. First of all, be sure that the feature branch will merge clearly into the main branch. The GitHub UI makes it dead easy to figure this out:
 
-![merge conflict](images/merge-conflict.png "")
+![merge conflict](../images/merge-conflict.png "")
 
 Pull Requests that can't be merged automatically will end up producing merge conflicts as both branches have conflicting changes into the same files. To fix this you should merge the main branch into the feature branch manually and resolve the existing conflicts.
 
@@ -107,7 +107,7 @@ Pull Requests that can't be merged automatically will end up producing merge con
 ```
 
 Once you committed the merge and pushed the feature branch you can see that GitHub will be able to merge your Pull Request automatically.
-![merge conflict](images/mergeable.png "")
+![merge conflict](../images/mergeable.png "")
 
 Now that the merge operation will work, you can press that big green button Merge pull request and the feature branch will be merged into the main branch! After that, don't forget to delete the feature branch that won't be used anymore - you can do this right after merging your Pull Request through the GitHub interface.
 
