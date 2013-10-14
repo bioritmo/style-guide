@@ -139,7 +139,7 @@ this_is_an_example(first: 1,
   people = Person.all
 ```
 
-* Syntax
+# Syntax
 
 * Always use ```&&``` and ```||``` for boolean expressions. Do not use ```and``` and ```or``` to avoid precedence issues.
 ```ruby
