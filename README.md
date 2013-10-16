@@ -13,7 +13,7 @@ Our own style guide and best practices.
 * [Whenever](guide/whenever.md)
 * [CSS](guide/css.md)
 
-Inspired by PlataformaTech.
+Inspired by PlataformaTec.
 
 How to Contribute
 -----------------
