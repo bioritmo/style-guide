@@ -25,7 +25,7 @@ The following sections explain how to create, maintain and merge Pull Requests.
 
 To kick off your Pull Request you will need a topic branch for whatever you're working on with the changes you want to introduce in a base branch. The base branch, also referred as the mainline of your repository, is the up to date/stable/deployable version of your project or application, that in most cases is the ```master``` branch of the repository (exceptions to this should always be documented and justified properly). You can also send Pull Requests to other branches in your repository, for instance when you are contributing to an existing branch of a bigger feature or an upcoming big change to your codebase. In such cases, the targeted branch will play the role of the base branch instead of ```master```.
 
-Be sure to name your branch according to the subject of your change. 
+Be sure to name your branch according to the subject of your change.
 
 #### Opening a Pull Request ####
 
@@ -111,24 +111,6 @@ Once you committed the merge and pushed the feature branch you can see that GitH
 
 Now that the merge operation will work, you can press that big green button Merge pull request and the feature branch will be merged into the main branch! After that, don't forget to delete the feature branch that won't be used anymore - you can do this right after merging your Pull Request through the GitHub interface.
 
-#### Mirrors and smoke ####
-
-In the case when [GitHub is a mirror](http://blog.plataformatec.com.br/2013/05/how-to-properly-mirror-a-git-repository/) of your real git repository you can't just click "Merge" and get away with this, as changes applied directly to the repository that lives on your GitHub account won't be pushed to your canonical repo.
-
-In such cases you need to merge the branch by yourself, through the git CLI. Jump into your shell, checkout your main branch and use ```git merge``` to merge your feature branch. Don't forget to use the ```--no-ff``` flag or turn the ```merge.ff``` configuration off.
-
-```
-  $ git checkout master
-  $ git merge --no-ff your-branch
-  # Or turn fast forwards off for good.
-  $ git config --global merge.ff false
-```
-
-The merge commit will tell GitHub to close the Pull Request that was opened to that branch, but the branch won't be deleted automatically, and you need to delete it in your canonical repository and then delete it from the GitHub repository when the changes are replicated to GitHub.
-
-### Using hub ###
-
-[hub](http://github.com/github/hub) is a handy tool that wraps the ```git``` command and adds some GitHub flavoured features and shortcuts. Some of them are useful for the workflow of opening and reviewing Pull Requests.
 
 #### Checking Pull Requests locally ####
 

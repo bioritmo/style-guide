@@ -12,6 +12,7 @@ Our own style guide and best practices.
 * [JavaScript](guide/javascript.md)
 * [Whenever](guide/whenever.md)
 * [CSS](guide/css.md)
+* [Tools](guide/tools.md)
 
 Inspired by PlataformaTec.
 
