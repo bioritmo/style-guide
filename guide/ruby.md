@@ -314,15 +314,6 @@ this_is_an_example(first: 1,
 
 ## Data syntax ##
 
-* When possible, use double-quoted strings only when interpolation is required. However, since it is common to work with generated files that use double-quoted strings by default, feel free to rely on the current file style.
-
-```ruby
-  # Instead of this...
-  name = "John Doe"
-  # ...you should do this.
-  name = 'John Doe'
-```
-
 * Use ```%()`` to define single-line strings which require interpolation and embedded double-quotes. For multi-line strings, prefer heredocs.
 
 ```ruby
