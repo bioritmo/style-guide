@@ -25,7 +25,7 @@ The following sections explain how to create, maintain and merge Pull Requests.
 
 To kick off your Pull Request you will need a topic branch for whatever you're working on with the changes you want to introduce in a base branch. The base branch, also referred as the mainline of your repository, is the up to date/stable/deployable version of your project or application, that in most cases is the ```master``` branch of the repository (exceptions to this should always be documented and justified properly). You can also send Pull Requests to other branches in your repository, for instance when you are contributing to an existing branch of a bigger feature or an upcoming big change to your codebase. In such cases, the targeted branch will play the role of the base branch instead of ```master```.
 
-Be sure to name your branch according to the subject of your change. We also recommend that you add your initials to your branch name as a way to identify its owner, as in ```ca-ruby20``` or ```ft-fix-all-the-things```. This pattern aims to document branch creators that have some sort of authorship of the topic branch, which is useful in projects where you have a lot of different developers working with different branches all the time (so this might not apply to Open Source projects where most people work with forks and the activity in the main repository isn't so big as a in a private repository).
+Be sure to name your branch according to the subject of your change. 
 
 #### Opening a Pull Request ####
 
