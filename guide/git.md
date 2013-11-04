@@ -10,12 +10,6 @@
   $ git checkout -b my-feature-branch
 ```
 
-* Create branches with your initials as prefix;
-
-```
-  $ git checkout -b cg-my-feature-branch
-```
-
 * Whenever you need to merge upstream updates into your feature branch, do it with ```rebase```, unless there are other people working on that same branch (in that case, discuss with them when it will be a good moment to rebase), or when there is an open pull request related to that branch;
 
 ```
