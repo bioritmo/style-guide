@@ -314,15 +314,6 @@ this_is_an_example(first: 1,
 
 ## Data syntax ##
 
-* Use the new hash syntax when using Ruby 1.9.
-
-```ruby
-  # Ruby 1.8
-  h = { :key => value }
-  # Ruby 1.9
-  h = { key: value }
-```
-
 * When possible, use double-quoted strings only when interpolation is required. However, since it is common to work with generated files that use double-quoted strings by default, feel free to rely on the current file style.
 
 ```ruby
