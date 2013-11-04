@@ -114,7 +114,8 @@ Preprocessors like [Sass](http://sass-lang.com/), [LESS](http://lesscss.org/) or
 Whenever using variables, define them with Screaming snake case so it's easier to scan the variable usage through your code. It is easier to spot ```$FONT_SIZE``` than ```$font-size```;
 Use a language specific comment delimiter like ```//``` instead of the classic ```/* */``` from CSS. They will work nicer with syntax highlighters and will be always ignored when compiling your stylesheets;
 Use the same extensions for all your stylesheets, even vendored files and those that have vanilla CSS code, since ```@import``` directives with ```.css``` files won't combine both files but emit a traditional CSS ```@import``` directive;
-Don't get too high on nesting - nested selector is a good way to reduce duplication of parent selectors but it compromises readability of your code. So, keep in mind to use a maximum nest of 3 levels deep and keep nested blocks with at most 40/50 lines, so they can fit in a single editor screen.
+Don't get too high on nesting - nested selector is a good way to reduce duplication of parent selectors but it compromises readability of your code. So, keep in mind to use a maximum nest of 1 levels deep and keep nested blocks with at most 40/50 lines, so they can fit in a single editor screen.
+
 
 ## Organization ##
 
