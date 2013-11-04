@@ -329,15 +329,6 @@ this_is_an_example(first: 1,
   STR
 ```
 
-* Use ```%w``` to define an array of strings.
-
-```ruby
-  # Instead of this...
-  names = ['John', 'Rose', 'Greg']
-  # ...you should do this.
-  names = %w(John Rose Greg)
-```
-
 ## Standard library ##
 
 * When using methods with bang! on strings, arrays and other enumerables, do not chain them:
