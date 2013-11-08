@@ -62,7 +62,7 @@
   end
 ```
 
-* Indent private methods at the same column as the public methods.
+* Indent private methods at the next column of the public methods.
 
 ```ruby
   class SomeClass
@@ -70,9 +70,9 @@
       # ...
     end
     private
-    def update_cached_values
-      # ...
-    end
+      def update_cached_values
+        # ...
+      end
   end
 ```
 
