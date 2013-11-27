@@ -10,6 +10,8 @@
   $ git checkout -b my-feature-branch
 ```
 
+* If the branch refers to an issue you're fixing, use as a standard ```fixes-<issue #>```;
+
 * Whenever you need to merge upstream updates into your feature branch, do it with ```rebase```, unless there are other people working on that same branch (in that case, discuss with them when it will be a good moment to rebase), or when there is an open pull request related to that branch;
 
 ```
@@ -35,6 +37,8 @@
 * Delete feature branches both local and remote after merging.
 
 * Good commit messages include a nice summary and subsequent information if needed; The summary must give you a quick overview of the commit and the subsequent text may include further explanation ('why this commit was necessary ?'). Read more [here](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
+
+* If a commit fixes a Github issue, include ```Fixes #<issue-number>``` on the commit message. The issue will then be closed upon merging into master.
 
 * Use ```simple``` for your ```push.default``` option. This way you'll only push branches that are explictly tracked with your local branches and that have the same name as the remote ones.
 
