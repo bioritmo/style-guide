@@ -73,11 +73,11 @@ All queries must live inside their own model. Never use ```where``` from outside
 Migrations
 ==========
 
-Use a "" (blank string) as default value on string columns instead `NULL`. This will make your life easier when create queries:
+Use a `""` (blank string) as default value on string columns instead `NULL`. This will make your life easier when create queries:
 
 If you do not follow the rule:
 ```ruby
-Person.where("(email IS NULL OR email = '') AND (phone IS NULL OR phone = '')")
+Person.where("(people.email IS NULL OR email = '') AND (people.phone IS NULL OR phone = '')")
 ```
 
 If you follow the rule:
