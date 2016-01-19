@@ -1,9 +1,20 @@
-# Ruby #
+# Ruby
 
-## Code style ##
+### Code style
 
-* Use 2 spaces for indentation, no tabs.
-* Insert spaces around operators, commas, colons, semicolons, ```{``` and before ```}```.
+##### Use 2 spaces for indentation, no tabs.
+
+```ruby
+class Person
+  attr_acessor :first_name, :last_name
+
+  def full_name
+    first_name + last_name
+  end
+end
+```
+
+##### Insert spaces around operators, commas, colons, semicolons, ```{``` and before ```}```.
 
 ```ruby
   hash = { key: value }
@@ -14,7 +25,7 @@
   end
 ```
 
-* Add spaces around ```=``` when assigning default values in method arguments.
+##### Add spaces around ```=``` when assigning default values in method arguments.
 
 ```ruby
   # Instead of this...
@@ -27,14 +38,14 @@
   end
 ```
 
-* Don't put spaces around ```(```, ```[``` and before ```)``` or ```]```.
+##### Don't put spaces around ```(```, ```[``` and before ```)``` or ```]```.
 
 ```ruby
   values = [1, 2, 3]
   filter(values)
 ```
 
-* Add a blank line between method definitions.
+##### Add a blank line between method definitions.
 
 ```ruby
   def initialize(var)
@@ -45,7 +56,7 @@
   end
 ```
 
-* Don't add a blank line after a class, method, spec definition or before their respective ```end```.
+##### Don't add a blank line after a class, method, spec definition or before their respective ```end```.
 
 ```ruby
   # Instead of this...
@@ -62,7 +73,7 @@
   end
 ```
 
-* Indent private methods at the same column as the public methods.
+##### Indent private methods at the same column as the public methods.
 
 ```ruby
   class SomeClass
@@ -76,8 +87,7 @@
   end
 ```
 
-Indent when as deep as ```case```. Do the same for ```if``` and ```else``` as well.
-
+##### Indent when as deep as ```case```. Do the same for ```if``` and ```else``` as well.
 
 ```ruby
   case
@@ -105,14 +115,16 @@ Indent when as deep as ```case```. Do the same for ```if``` and ```else``` as we
            end
 ```
 
-Use the same style for arguments:
+##### Use the same style for arguments:
+
 ```ruby
 this_is_an_example(first: 1,
                    second: 2)
 ```
 
-## Idioms ##
-* When defining methods don't use parentheses for methods that don't take arguments. Use parentheses only for methods that accept arguments.
+### Idioms
+
+##### When defining methods don't use parentheses for methods that don't take arguments. Use parentheses only for methods that accept arguments.
 
 ```ruby
   def save
@@ -123,14 +135,35 @@ this_is_an_example(first: 1,
   end
 ```
 
-# Naming
+### Naming
 
-* Use ```CamelCase``` for classes names.
-* Use ```snake_case``` for methods and variable names.
-* Use ```SCREAMING_SNAKE_CASE``` for constants.
-* Names of predicate methods should end with ```?```.
+##### Use ```CamelCase``` for classes names.
 
-* Avoid types in names.
+```ruby
+  MyCustomError = Class.new(StandardError)
+```
+
+##### Use ```snake_case``` for methods and variable names.
+
+```ruby
+  area = height * width
+```
+
+##### Use ```SCREAMING_SNAKE_CASE``` for constants.
+
+```ruby
+  COISO_PREFIX = "Coiso".freeze
+```
+
+##### Names of predicate methods should end with ```?```.
+
+```ruby
+  def paulista?
+    acronym == "PTA"
+  end
+```
+
+##### Avoid types in names.
 
 ```ruby
   # Instead of this...
@@ -139,16 +172,16 @@ this_is_an_example(first: 1,
   people = Person.all
 ```
 
-# Syntax
+### Syntax
 
-* Always use ```&&``` and ```||``` for boolean expressions. Do not use ```and``` and ```or``` to avoid precedence issues.
+##### Always use ```&&``` and ```||``` for boolean expressions. Do not use ```and``` and ```or``` to avoid precedence issues.
 ```ruby
   if something && other
     do_this
   end
 ```
 
-* Don't use ```unless``` with ```else```. Switch the clauses and use ```if``` instead.
+##### Don't use ```unless``` with ```else```. Switch the clauses and use ```if``` instead.
 
 ```ruby
   # Instead of this...
@@ -165,7 +198,7 @@ this_is_an_example(first: 1,
   end
 ```
 
-* Don't use ```then``` for multi-line ```if/unless```.
+##### Don't use ```then``` for multi-line ```if/unless```.
 
 ```ruby
   # Avoid this
@@ -174,15 +207,15 @@ this_is_an_example(first: 1,
   end
 ```
 
-* When having a single-line body for a conditional consider using the ```if/unless``` modifier.
+##### When having a single-line body for a conditional consider using the ```if/unless``` modifier.
 
 ```ruby
   do_this if something
 ```
 
-* Don't use ```for``` unless you have a very good reason. Use ```each``` instead.
+##### Don't use ```for``` unless you have a very good reason. Use ```each``` instead.
 
-* Avoid ```return``` when not required.
+##### Avoid ```return``` when not required.
 
 ```ruby
   # Instead of this...
@@ -195,7 +228,7 @@ this_is_an_example(first: 1,
   end
 ```
 
-* Avoid ```self``` when not required.
+##### Avoid ```self``` when not required.
 
 ```ruby
   # Instead of this...
@@ -208,7 +241,7 @@ this_is_an_example(first: 1,
   end
 ```
 
-* Use ```_``` for unused block parameters.
+##### Use ```_``` for unused block parameters.
 
 ```ruby
   # Instead of this...
@@ -217,7 +250,7 @@ this_is_an_example(first: 1,
   hash.map { |_, v| v + 1 }
 ```
 
-* Use ```attr_*``` to define trivial methods.
+##### Use ```attr_*``` to define trivial methods.
 
 ```ruby
   # Instead of this...
@@ -243,9 +276,9 @@ this_is_an_example(first: 1,
   end
 ```
 
-* When defining class methods use def ```self.method``` if there isn't too many methods. If there's too much prefer using ```class << self```. There's no threshold number for this, you just need to follow your <3.
+##### When defining class methods use def ```self.method``` if there isn't too many methods. If there's too much prefer using ```class << self```. There's no threshold number for this, you just need to follow your <3.
 
-* Use implicit ```begin``` blocks.
+##### Use implicit ```begin``` blocks.
 
 ```ruby
   # Instead of this...
@@ -264,7 +297,7 @@ this_is_an_example(first: 1,
   end
 ```
 
-* If you're defining a class that doesn't have any methods, do it in a single-line. This happens a lot when defining exceptions.
+##### If you're defining a class that doesn't have any methods, do it in a single-line. This happens a lot when defining exceptions.
 
 ```ruby
   # Instead of this...
@@ -277,7 +310,7 @@ this_is_an_example(first: 1,
   class MyError < StandardError; end
 ```
 
-* Use ```{...}``` for single-line blocks instead of ```do...end```. For multi-line blocks use ```do...end```.
+##### Use ```{...}``` for single-line blocks instead of ```do...end```. For multi-line blocks use ```do...end```.
 
 ```ruby
   # Instead of this...
@@ -302,7 +335,7 @@ this_is_an_example(first: 1,
   people.each { |person| puts person.name }
 ```
 
-* Signal exceptions using ```raise```. Use ```fail``` only if the exception should not be catched.
+##### Signal exceptions using ```raise```. Use ```fail``` only if the exception should not be catched.
 
 ```ruby
   begin
@@ -312,9 +345,9 @@ this_is_an_example(first: 1,
   end
 ```
 
-## Data syntax ##
+### Data syntax
 
-* Use ```%()`` to define single-line strings which require interpolation and embedded double-quotes. For multi-line strings, prefer heredocs.
+##### Use ```%()`` to define single-line strings which require interpolation and embedded double-quotes. For multi-line strings, prefer heredocs.
 
 ```ruby
   # This is good
@@ -329,9 +362,9 @@ this_is_an_example(first: 1,
   STR
 ```
 
-## Standard library ##
+### Standard library
 
-* When using methods with bang! on strings, arrays and other enumerables, do not chain them:
+##### When using methods with bang! on strings, arrays and other enumerables, do not chain them:
 
 ```ruby
   # Instead of this...
@@ -343,7 +376,7 @@ this_is_an_example(first: 1,
 ```
 This is because many bang! methods return ```nil``` if no change happens ([for example](http://ruby-doc.org/core-1.9.3/Array.html#method-i-reject-21), [Array#reject!](http://ruby-doc.org/core-1.9.3/Array.html#method-i-reject-21)) and those mistakes are very hard to detect since it only happens in special circumstances.
 
-* Avoid ```Object#tap``` when it does not lead to more concise code. In the following case, it seems unnecessary and compromises readability. By using variable the returning value is clearer.
+##### Avoid ```Object#tap``` when it does not lead to more concise code. In the following case, it seems unnecessary and compromises readability. By using variable the returning value is clearer.
 
 ```ruby
   # Instead of this...
@@ -368,7 +401,7 @@ The memoization might be an use case for using tap instead of using ```begin..en
 
 Alternatively, you can move to a method and use variable assignment.
 
-* Use ```inject``` when you need to work with the accumulated value in the next iteration. It is known as ```foldl``` (fold left) in functional languages, where you reduce the collection from the left to a result. For example:
+##### Use ```inject``` when you need to work with the accumulated value in the next iteration. It is known as ```foldl``` (fold left) in functional languages, where you reduce the collection from the left to a result. For example:
 
 ```ruby
   [1, 2, 3, 4].inject(0) do |sum, n|
