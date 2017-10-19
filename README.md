@@ -1,24 +1,22 @@
-Bio Ritmo's Style Guide
-=======================
+Bio Ritmo Style Guide
+=====================
 
-Our own style guide and best practices.
+Nosso guia de estilo e melhores práticas.
 
-* [General](guide/general.md)
-* [Git](guide/git.md)
-* [Pull Requests](guide/pull_requests.md)
+* [Geral](guide/general.md)
+* [Git, Github e Pull Requests](guide/git_pull_requests.md)
 * [Ruby](guide/ruby.md)
 * [Rails](guide/rails.md)
-* [Rspec](guide/rspec.md)
+* [RSpec](guide/rspec.md)
 * [JavaScript](guide/javascript.md)
 * [Whenever](guide/whenever.md)
 * [CSS](guide/css.md)
 * [Tools](guide/tools.md)
 
-Inspired by PlataformaTec.
+Inspirado no guia da PlataformaTec.
 
-How to Contribute
------------------
+Como Contribuir
+---------------
 
 * Use GitHub Flavored Markdown
-* Use Github Editor (Online) or Mou (Mac OS X) or whatever
-* Use Pull Requests in order to all look your changes
+* Use Pull Requests
