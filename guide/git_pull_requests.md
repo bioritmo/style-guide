@@ -95,7 +95,7 @@ Uma vez que tiver seu branch com alguns commits nele você pode ir para a interf
 
 Uma parte importante do seu Pull Request é o título e a descrição que você vai escrever. Se sua branch tem um único commit, aquela mensagem do commit será usada para compor o título e a descrição do Pull Request, ou o Github vai sugerir uma versão 'humanizada' do nome da sua branch para o título (como 'Feature crud de user'), o que não ajuda muito. Na maioria dos casos você deve escrever você mesmo para mostrar o que está fazendo e o porquê. Você pode explicar a origem do bug que você está arrumando, ou detalhes da nova feature que você quer introduzir com seu Pull Request. Uma boa prática é colocar o link da história ou o link do chamado e copiar a descrição deles. Ah, escreva tudo em Português.
 
-Em alguns repositórios, haverá um template de Pull Request com um esqueleto básico e algumas instruções, baseadas neste style guide.
+Em alguns repositórios, haverá um [template de Pull Request](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/) com um esqueleto básico e algumas instruções, baseadas neste style guide. [Veja um exemplo de template para este repositório](PULL_REQUEST_TEMPLATE.md).
 
 ### GitHub Flavored Markdown
 
