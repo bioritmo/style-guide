@@ -1,8 +1,8 @@
 # Ruby
 
-### Code style
+### Estilo de Código
 
-##### Use 2 spaces for indentation, no tabs.
+##### Use 2 espaços para indentação, não use tabulação.
 
 ```ruby
 class Person
@@ -14,7 +14,7 @@ class Person
 end
 ```
 
-##### Insert spaces around operators, commas, colons, semicolons, ```{``` and before ```}```.
+##### Adicione espaços entre os operatores, `,`, `;`, `:`, ```{``` e antes ```}```.
 
 ```ruby
   hash = { key: value }
@@ -25,47 +25,50 @@ end
   end
 ```
 
-##### Add spaces around ```=``` when assigning default values in method arguments.
+##### Adicione espaços em volta  ```=``` quanto definir valores padrão para argumentos de um método.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de...
   def some_method(name, status='active')
     # ...
   end
-  # ...You should do this.
+  # ... você deve escrever assim
   def some_method(name, status = 'active')
     # ...
   end
 ```
 
-##### Don't put spaces around ```(```, ```[``` and before ```)``` or ```]```.
+##### Não coloque espaços em volta de  ```(```, ```[``` e antes de ```)``` ou ```]```.
 
 ```ruby
   values = [1, 2, 3]
   filter(values)
 ```
 
-##### Add a blank line between method definitions.
+##### Adicione uma linha em branco entre as definições de métodos.
 
 ```ruby
   def initialize(var)
     @var = var
   end
+
   def filter(values)
     values.select { |value| value.allowed? }
   end
 ```
 
-##### Don't add a blank line after a class, method, spec definition or before their respective ```end```.
+##### Não adicione uma linha em branco depois de definir um nome de classe, método, teste ou antes de seus respectivos ```end```.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de...
   class MyClass
+
     def my_method
       # ...
     end
+
   end
-  # ...You should do this.
+  # ... você deve escrever assim
   class MyClass
     def my_method
       # ...
@@ -73,21 +76,23 @@ end
   end
 ```
 
-##### Indent private methods at the same column as the public methods.
+##### Idente métodos privados na mesma coluna que os métodos públicos.
 
 ```ruby
   class SomeClass
     def find(name)
       # ...
     end
+
     private
+
     def update_cached_values
       # ...
     end
   end
 ```
 
-##### Indent when as deep as ```case```. Do the same for ```if``` and ```else``` as well.
+##### Idente `when` no mesmo nível de `case`. Faça o mesmo para ```if``` e ```else```.
 
 ```ruby
   case
@@ -100,6 +105,7 @@ end
   else
     song.play
   end
+
   kind = case year
          when 1850..1889 then 'Blues'
          when 1890..1909 then 'Ragtime'
@@ -108,6 +114,7 @@ end
          when 1940..1950 then 'Bebop'
          else 'Jazz'
          end
+
   result = if something
              'that'
            else
@@ -115,47 +122,48 @@ end
            end
 ```
 
-##### Use the same style for arguments:
+##### Use o mesmo estilo para argumentos:
 
 ```ruby
 this_is_an_example(first: 1,
                    second: 2)
 ```
 
-### Idioms
+### Idiomas
 
-##### When defining methods don't use parentheses for methods that don't take arguments. Use parentheses only for methods that accept arguments.
+##### Quando definir métodos, não use parenteses para métodos que não tenham argumentos. Use parenteses apenas para métodos que aceitem argumentos.
 
 ```ruby
   def save
     # ...
   end
+
   def create(name, age)
     # ...
   end
 ```
 
-### Naming
+### Nomemclaturas
 
-##### Use ```CamelCase``` for classes names.
+##### Use ```CamelCase``` para nomes de classes.
 
 ```ruby
   MyCustomError = Class.new(StandardError)
 ```
 
-##### Use ```snake_case``` for methods and variable names.
+##### Use ```snake_case``` para nomear métodos e variáveis.
 
 ```ruby
   area = height * width
 ```
 
-##### Use ```SCREAMING_SNAKE_CASE``` for constants.
+##### Use ```SCREAMING_SNAKE_CASE``` para constantes.
 
 ```ruby
   COISO_PREFIX = "Coiso".freeze
 ```
 
-##### Names of predicate methods should end with ```?```.
+##### Nomes de métodos predicados devem terminar com ```?```.
 
 ```ruby
   def paulista?
@@ -163,34 +171,35 @@ this_is_an_example(first: 1,
   end
 ```
 
-##### Avoid types in names.
+##### Evite tipos em definições de nomes.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   people_array = Person.all
-  # ...You should do this.
+  # você deve escrever assim.
   people = Person.all
 ```
 
-### Syntax
+### Sintaxe
 
-##### Always use ```&&``` and ```||``` for boolean expressions. Do not use ```and``` and ```or``` to avoid precedence issues.
+##### Sempre use ```&&``` e ```||``` para expressões booleanas. Não use ```and``` e ```or``` para evitar problemas de precedência.
+
 ```ruby
   if something && other
     do_this
   end
 ```
 
-##### Don't use ```unless``` with ```else```. Switch the clauses and use ```if``` instead.
+##### Não use ```unless``` com ```else```. Sempre dê preferência a começar com a condição que não seja negativa. Se for o caso, inverta as cláusulas e use ```if```.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   unless success?
     puts 'failure'
   else
     puts 'success'
   end
-  # ...You should do this.
+  # você deve escrever assim.
   if success?
     puts 'success'
   else
@@ -198,10 +207,10 @@ this_is_an_example(first: 1,
   end
 ```
 
-##### Don't use ```then``` for multi-line ```if/unless```.
+##### Não use ```then``` para ```if/unless``` em múltiplas linhas.
 
 ```ruby
-  # Avoid this
+  # Evite
   if something then
     do_that
   end
@@ -218,11 +227,11 @@ this_is_an_example(first: 1,
 ##### Avoid ```return``` when not required.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   def filter(values)
     return values.select { |value| value.allowed? }
   end
-  # ...you should do this.
+  # você deve escrever assim.
   def filter(values)
     values.select { |value| value.allowed? }
   end
@@ -231,11 +240,11 @@ this_is_an_example(first: 1,
 ##### Avoid ```self``` when not required.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   def big_name
     self.name * 50
   end
-  # ...you should do this.
+  # você deve escrever assim.
   def big_name
     name * 50
   end
@@ -244,16 +253,16 @@ this_is_an_example(first: 1,
 ##### Use ```_``` for unused block parameters.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   hash.map { |k, v| v + 1 }
-  # ...you should do this.
+  # você deve escrever assim.
   hash.map { |_, v| v + 1 }
 ```
 
 ##### Use ```attr_*``` to define trivial methods.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   class Person
     def initialize(name, age)
       @name = name
@@ -266,7 +275,7 @@ this_is_an_example(first: 1,
       @age
     end
   end
-  # ...you should do this.
+  # você deve escrever assim.
   class Person
     attr_reader :name, :age
     def initialize(name, age)
@@ -281,7 +290,7 @@ this_is_an_example(first: 1,
 ##### Use implicit ```begin``` blocks.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   def method
     begin
       do_something
@@ -289,7 +298,7 @@ this_is_an_example(first: 1,
       puts e
     end
   end
-  # ...you should do this.
+  # você deve escrever assim.
   def method
     do_something
   rescue SomeError => e
@@ -300,12 +309,12 @@ this_is_an_example(first: 1,
 ##### If you're defining a class that doesn't have any methods, do it in a single-line. This happens a lot when defining exceptions.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   class MyClass
   end
   class MyError < StandardError
   end
-  # ...you should do this.
+  # você deve escrever assim.
   class MyClass; end
   class MyError < StandardError; end
 ```
@@ -313,7 +322,7 @@ this_is_an_example(first: 1,
 ##### Use ```{...}``` for single-line blocks instead of ```do...end```. For multi-line blocks use ```do...end```.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   people.each { |person|
     # lots
     # of
@@ -324,7 +333,7 @@ this_is_an_example(first: 1,
   people.each do |person|
     puts person.name
   end
-  # ...you should do this.
+  # você deve escrever assim.
   people.each do |person|
     # lots
     # of
@@ -352,9 +361,9 @@ this_is_an_example(first: 1,
 ```ruby
   # This is good
   %(<div class="my-class">#{my_content}</div>)
-  # Instead of this...
+  # Ao invés de ...
   %(<div>\n<span class="my-class">Content</span>\n</div>)
-  # ...you should do this.
+  # você deve escrever assim.
   <<-STR
   <div>
     <span class="my-class">Content</span>
@@ -367,9 +376,9 @@ this_is_an_example(first: 1,
 ##### When using methods with bang! on strings, arrays and other enumerables, do not chain them:
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   articles = associations.select { |a| a.is_a?(Article) }.sort_by!(&:published_at)
-  # ...you should do this.
+  # você deve escrever assim.
   articles = associations.select { |a| a.is_a?(Article) }
   articles.sort_by!(&:published_at)
   articles
@@ -379,11 +388,11 @@ This is because many bang! methods return ```nil``` if no change happens ([for e
 ##### Avoid ```Object#tap``` when it does not lead to more concise code. In the following case, it seems unnecessary and compromises readability. By using variable the returning value is clearer.
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   article.save.tap do |saved|
     do_something if saved
   end
-  # ...you should do this.
+  # você deve escrever assim.
   saved = article.save
   do_something if saved
   saved
@@ -420,21 +429,23 @@ Alternatively, you can move to a method and use variable assignment.
 However, it might lead to some misuses:
 
 ```ruby
-  # Instead of this...
+  # Ao invés de ...
   [1, 2, 3, 4].inject({}) do |hash, n|
     hash[n] = 'a' * n
     hash
   end
-  # ...you should do this.
+  # você deve escrever assim.
   [1, 2, 3, 4].each_with_object({}) do |n, hash|
     hash[n] = 'a' * n
   end
   # => {1=>"a", 2=>"aa", 3=>"aaa", 4=>"aaaa"}
 ```
 
-Reading the second example, you can see that the next interation doesn't require the previous ```state```. You just need that the object in use is a ```Hash``` to associate key-values into. So, in these cases, ```each_with_object``` is preferable.
+Lendo o segundo exemplo, você pode ver que a próxima interação não requer o `estado` anterior.
+Você só precisa que o objeto em uso seja um ```Hash``` para associar valores-chave.
+Então, nesses casos, é preferível usar ```each_with_object```.
 
-Recall that you can always use simple ruby code to achieve the same result:
+Lembre-se de que você sempre pode usar o código ruby mais simples para obter o mesmo resultado:
 ```ruby
   hash = {}
   [1, 2, 3, 4].each { |n| hash[n] = 'a' * n }
