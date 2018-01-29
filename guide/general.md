@@ -3,7 +3,7 @@
 These general guidelines are advised regardless of the kind of source code you are working on - from Ruby to HTML and Objective-C source code or Markdown files, these basic practices should be followed. The best way to follow these guidelines is by configuring your editor to do all the hard work for you.
 
 * Do not leave trailing whitespaces or line endings on your files:
-    * On Vim you can add something like ```autocmd BufWritePre * :%s/\s\+$//e``` to your ```~/.vimrc``.
+    * On Vim you can add something like ```autocmd BufWritePre * :%s/\s\+$//e``` to your ```~/.vimrc```.
     * On Sublime Text you can just set the ```trim_trailing_white_space_on_save``` option to ```true```.
     * On TextMate, you can install the [uber-glory](https://github.com/glennr/uber-glory-tmbundle) bundle.
 
