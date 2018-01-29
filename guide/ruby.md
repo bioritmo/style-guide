@@ -347,7 +347,7 @@ this_is_an_example(first: 1,
 
 ### Data syntax
 
-##### Use ```%()`` to define single-line strings which require interpolation and embedded double-quotes. For multi-line strings, prefer heredocs.
+##### Use ```%()``` to define single-line strings which require interpolation and embedded double-quotes. For multi-line strings, prefer heredocs.
 
 ```ruby
   # This is good
