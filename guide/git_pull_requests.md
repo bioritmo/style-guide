@@ -119,7 +119,7 @@ Para criar GIFs facilmente de você movendo e clicando no seu browser você vai 
 
 ### Revisando Pull Requests
 
-"Feedback é um dos processos mais difíceis e sensíveis em grupos. É fácil ferir pessoas com críticas, mas elogios falsos também não ajudam. Elogios muitas vezes nos tornam muito confortáveis, enquanto que críticas prejudicam nossa autoestima e pode nos levar a fazer escolhas erradas."
+> "Feedback é um dos processos mais difíceis e sensíveis em grupos. É fácil ferir pessoas com críticas, mas elogios falsos também não ajudam. Elogios muitas vezes nos tornam muito confortáveis, enquanto que críticas prejudicam nossa autoestima e pode nos levar a fazer escolhas erradas."
 
 Essa frase é perfeita para explicar a delicadeza de uma revisão de Pull Request: nem tão áspero, nem tão suave.
 
@@ -147,6 +147,7 @@ Quando estiver passando por uma, por favor considere os seguintes itens:
 * Não leve para o lado pessoal. Ninguém está querendo que você se sinta mal ou que você fique desconfortável na equipe de desenvolvimento.
 * Seja sempre humilde. Aprenda com seus erros.
 * Entenda as outras alternativas antes de escolher alguma delas ou manter a solução que você propôs. Se você não entendeu completamente porquê alguém pediu alguma mudança, peça explicações e/ou exemplos.
+* Mantenha a discussão sobre um Pull Request dentro do próprio Pull Request. Por mais tentador que seja falar diretamente com o revisor (ou autor), seja pessoalmente, numa ligação ou por *chat*, é sempre melhor escrever dentro do próprio Pull Request. Assim todos ficam cientes da discussão e podem participar também.
 
 ### Mergeando Pull Requests
 
